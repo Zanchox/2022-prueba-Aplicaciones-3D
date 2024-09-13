@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float laneDistance = 3f; // Distancia entre cada carril
+    public float laneDistance = 4f; // Distancia entre cada carril
     public float laneSwitchSpeed = 50f; // Velocidad del cambio de carril (aumenta el valor para saltar más rápido)
     private int currentLane = 1; // Carril actual (0: izquierda, 1: medio, 2: derecha)
     private Vector3 targetPosition; // Posición objetivo cuando se mueve al siguiente carril
