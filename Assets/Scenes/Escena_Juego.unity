@@ -2056,6 +2056,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3841994311469534714, guid: eca0bed5e4f255c42811d087ba3a8438, type: 3}
   m_PrefabInstance: {fileID: 173796101}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &182201585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 182201587}
+  - component: {fileID: 182201586}
+  m_Layer: 0
+  m_Name: Salircorde
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &182201586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182201585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac93138e0f6e6747ae23d8c52491191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &182201587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182201585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 51.47429, y: 2.0345917, z: -18.329529}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182716758
 GameObject:
   m_ObjectHideFlags: 0
@@ -8493,7 +8537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Salir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15079,7 +15123,7 @@ GameObject:
   - component: {fileID: 1334552841}
   - component: {fileID: 1334552840}
   m_Layer: 5
-  m_Name: Button
+  m_Name: salir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15148,7 +15192,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1334552841}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 182201586}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: OnAtrasButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1334552841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24153,3 +24209,4 @@ SceneRoots:
   - {fileID: 1679291371}
   - {fileID: 954000609}
   - {fileID: 1475160076}
+  - {fileID: 182201587}
