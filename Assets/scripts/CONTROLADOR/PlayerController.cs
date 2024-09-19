@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float laneDistance = 4f; // Distancia entre cada carril
-    public float laneSwitchSpeed = 50f; // Velocidad del cambio de carril (aumenta el valor para saltar más rápido)
+    public float laneSwitchSpeed = 50f; // Velocidad del cambio de carril
     private int currentLane = 1; // Carril actual (0: izquierda, 1: medio, 2: derecha)
+    private int previousLane = 1; // Carril anterior al choque
     private Vector3 targetPosition; // Posición objetivo cuando se mueve al siguiente carril
     private bool isSlowingDown = false;
 
@@ -25,11 +26,13 @@ public class PlayerController : MonoBehaviour
         // Movimiento entre carriles con las teclas A y D
         if (Input.GetKeyDown(KeyCode.A) && currentLane > 0)
         {
+            previousLane = currentLane;
             currentLane--;
             SetTargetPosition();
         }
         else if (Input.GetKeyDown(KeyCode.D) && currentLane < 2)
         {
+            previousLane = currentLane;
             currentLane++;
             SetTargetPosition();
         }
@@ -82,6 +85,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log("El jugador deja de temblar");
     }
 
+    // Método para volver al carril anterior
+    public void ResetToLane()
+    {
+        currentLane = previousLane; // Vuelve al carril anterior
+        SetTargetPosition(); // Ajustar la posición del jugador
+    }
+
     // Método que se llama cuando el jugador pierde
     public void LoseGame()
     {
@@ -94,28 +104,29 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            HandleObstacleCollision();
+            HandleObstacleCollision(other);
         }
         else if (other.CompareTag("Coin"))
         {
-            CollectCoin(other.gameObject);
+            CollectCoin(other.gameObject); // Recolección de monedas
         }
     }
 
     // Manejo de colisión con obstáculo
-    void HandleObstacleCollision()
+    void HandleObstacleCollision(Collider obstacle)
     {
-        if (isShaking)
+        Vector3 obstaclePosition = obstacle.transform.position;
+        Vector3 playerPosition = transform.position;
+
+        // Si el jugador se choca de frente
+        if (Mathf.Abs(obstaclePosition.x - playerPosition.x) < 0.1f)
         {
-            // El jugador golpea por segunda vez mientras tiembla
-            Debug.Log("Jugador se cae y pierde");
-            LoseGame(); // Llama al método que maneje la pérdida del jugador
+            LoseGame(); // Pierde si se choca de frente
         }
         else
         {
-            // El jugador tiembla al golpear el obstáculo
-            Debug.Log("Jugador está temblando");
-            StartShaking(shakeTime); // Llama al método para que el jugador empiece a temblar
+            StartShaking(shakeTime); // Si es un choque lateral, el jugador tiembla
+            ResetToLane(); // Regresa al carril anterior
         }
     }
 
@@ -123,7 +134,8 @@ public class PlayerController : MonoBehaviour
     void CollectCoin(GameObject coin)
     {
         coin.SetActive(false); // Desactivar la moneda
-        GameHUDView hudView = FindObjectOfType<GameHUDView>();
-        hudView.AddCoin(); // Llama al método AddCoin en GameHUDView
+        ObjectsController objectsController = FindObjectOfType<ObjectsController>();
+        objectsController.AddCoin(); // Llama al método AddCoin en ObjectsController para sumar las monedas
+        StartCoroutine(objectsController.RespawnCoin(coin)); // Reaparecer la moneda después de 3 segundos
     }
 }

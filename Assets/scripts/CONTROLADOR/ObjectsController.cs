@@ -19,7 +19,6 @@ public class ObjectsController : MonoBehaviour
     private Queue<GameObject> activeObjects = new Queue<GameObject>(); // Plantillas activas visibles
     private List<GameObject> availableObjects; // Plantillas disponibles para usar
     private int coinsCollected = 0; // Monedas recolectadas
-    private bool isPlayerShaking = false; // Estado del jugador (temblando)
     private float shakeTime = 2.0f; // Duración del estado de temblor
 
     private Dictionary<int, List<int>> connectionRules = new Dictionary<int, List<int>>()
@@ -90,12 +89,31 @@ public class ObjectsController : MonoBehaviour
         }
     }
 
+    // Método para sumar una moneda al contador
+    public void AddCoin()
+    {
+        coinsCollected++;
+        coinsText.text = "Monedas: " + coinsCollected.ToString();
+    }
+
+    // Corrutina para reaparecer la moneda después de 3 segundos
+    public IEnumerator RespawnCoin(GameObject coin)
+    {
+        yield return new WaitForSeconds(3f);
+        coin.SetActive(true); // Reactivar la moneda
+        Collider coinCollider = coin.GetComponent<Collider>();
+        if (coinCollider != null)
+        {
+            coinCollider.enabled = true; // Asegurar que el Collider esté activo
+        }
+    }
+
     // Detectar colisiones con obstáculos y monedas
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle"))
         {
-            HandleObstacleCollision();
+            HandleObstacleCollision(other);
         }
         else if (other.CompareTag("Coin"))
         {
@@ -104,19 +122,20 @@ public class ObjectsController : MonoBehaviour
     }
 
     // Manejo de colisión con obstáculo
-    void HandleObstacleCollision()
+    void HandleObstacleCollision(Collider obstacle)
     {
-        if (player.isShaking)
+        Vector3 obstaclePosition = obstacle.transform.position;
+        Vector3 playerPosition = player.transform.position;
+
+        // Si el jugador se choca de frente
+        if (Mathf.Abs(obstaclePosition.x - playerPosition.x) < 0.1f)
         {
-            // El jugador golpea por segunda vez mientras tiembla
-            Debug.Log("Jugador se cae y pierde");
-            player.LoseGame(); // Llamar al método que maneje la pérdida del jugador
+            player.LoseGame(); // Pierde si se choca de frente
         }
         else
         {
-            // El jugador tiembla al golpear el obstáculo
-            Debug.Log("Jugador está temblando");
-            player.StartShaking(shakeTime); // Llama al método para que el jugador empiece a temblar
+            player.StartShaking(shakeTime); // Si es un choque lateral, el jugador tiembla
+            player.ResetToLane(); // Regresa al carril anterior
         }
     }
 
@@ -124,8 +143,8 @@ public class ObjectsController : MonoBehaviour
     void CollectCoin(GameObject coin)
     {
         coin.SetActive(false); // Desactivar la moneda
-        coinsCollected++;
-        coinsText.text = "Monedas: " + coinsCollected.ToString();
+        AddCoin(); // Actualizar el contador de monedas
+        StartCoroutine(RespawnCoin(coin)); // Reaparecer la moneda después de 3 segundos
     }
 
     // Restablecer el estado de las monedas cuando se vuelve a activar una plantilla
@@ -136,6 +155,11 @@ public class ObjectsController : MonoBehaviour
             if (child.CompareTag("Coin"))
             {
                 child.gameObject.SetActive(true); // Las monedas vuelven a estar activas
+                Collider coinCollider = child.GetComponent<Collider>();
+                if (coinCollider != null)
+                {
+                    coinCollider.enabled = true; // Asegurar que el Collider esté activo
+                }
             }
         }
     }
