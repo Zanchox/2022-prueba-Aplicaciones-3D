@@ -6,6 +6,7 @@ public class ButtonManager : MonoBehaviour
     public void OnJugarButtonClicked() //nombres para el script "jugar" todo lo demas es igual
     {
         Debug.Log("Boton Jugar presionado");
+        SceneManager.LoadScene("Escena_Juego");
     }
 
     public void OnOpcionesButtonClicked()
