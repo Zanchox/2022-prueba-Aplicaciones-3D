@@ -18,14 +18,18 @@ public class GameHUDView : MonoBehaviour
         // Actualizar la distancia recorrida en función de la velocidad del entorno y el tiempo
         distanceTravelled += environmentSpeed * Time.deltaTime;
         distanceText.text = "Distancia: " + Mathf.Floor(distanceTravelled) + "m";
-
-        // Mostrar las monedas recogidas
-        coinsText.text = "Monedas: " + coinsCollected.ToString();
     }
 
     // Llamar a esta función cuando el jugador recoja una moneda
     public void AddCoin()
     {
         coinsCollected++;
+        UpdateCoinsText(); // Actualizar el texto de monedas cuando se recoja una
+    }
+
+    // Método para actualizar el texto de las monedas en el HUD
+    private void UpdateCoinsText()
+    {
+        coinsText.text = "Monedas: " + coinsCollected.ToString();
     }
 }

@@ -12,7 +12,8 @@ public class ObjectsController : MonoBehaviour
     public float accelerationRate = 0.1f; // Aceleración por segundo
     public float objectDistance = 30f; // Distancia entre plantillas de objetos
     public float objectThreshold = -50f; // Umbral en Z para colocar en reserva
-    public TextMeshProUGUI coinsText; // Texto del contador de monedas
+    public TextMeshProUGUI coinsText; // Texto del contador de monedas en GameHUDView
+    public PlayerController player; // Referencia al PlayerController para gestionar el estado de temblor
 
     private float currentSpeed; // Velocidad actual
     private Queue<GameObject> activeObjects = new Queue<GameObject>(); // Plantillas activas visibles
@@ -94,35 +95,37 @@ public class ObjectsController : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
-            if (isPlayerShaking)
-            {
-                // El jugador golpea por segunda vez mientras tiembla
-                Debug.Log("Jugador se cae y pierde");
-                // Aquí puedes llamar al método que maneje la pérdida del jugador
-            }
-            else
-            {
-                // El jugador tiembla al golpear el obstáculo
-                Debug.Log("Jugador está temblando");
-                isPlayerShaking = true;
-                StartCoroutine(ShakePlayer());
-            }
+            HandleObstacleCollision();
         }
         else if (other.CompareTag("Coin"))
         {
-            // El jugador recolecta una moneda
-            other.gameObject.SetActive(false); // Desactiva la moneda
-            coinsCollected++;
-            coinsText.text = "Monedas: " + coinsCollected.ToString();
+            CollectCoin(other.gameObject);
         }
     }
 
-    // Temporizador para el estado de temblor del jugador
-    private IEnumerator ShakePlayer()
+    // Manejo de colisión con obstáculo
+    void HandleObstacleCollision()
     {
-        yield return new WaitForSeconds(shakeTime);
-        isPlayerShaking = false; // El jugador deja de temblar
-        Debug.Log("Jugador deja de temblar");
+        if (player.isShaking)
+        {
+            // El jugador golpea por segunda vez mientras tiembla
+            Debug.Log("Jugador se cae y pierde");
+            player.LoseGame(); // Llamar al método que maneje la pérdida del jugador
+        }
+        else
+        {
+            // El jugador tiembla al golpear el obstáculo
+            Debug.Log("Jugador está temblando");
+            player.StartShaking(shakeTime); // Llama al método para que el jugador empiece a temblar
+        }
+    }
+
+    // Manejo de la recolección de monedas
+    void CollectCoin(GameObject coin)
+    {
+        coin.SetActive(false); // Desactivar la moneda
+        coinsCollected++;
+        coinsText.text = "Monedas: " + coinsCollected.ToString();
     }
 
     // Restablecer el estado de las monedas cuando se vuelve a activar una plantilla
