@@ -12,13 +12,13 @@ public class ObjectsController : MonoBehaviour
     public float accelerationRate = 0.1f; // Aceleración por segundo
     public float objectDistance = 30f; // Distancia entre plantillas de objetos
     public float objectThreshold = -50f; // Umbral en Z para colocar en reserva
-    public TextMeshProUGUI coinsText; // Texto del contador de monedas
+    public TextMeshProUGUI coinsText; // Texto del contador de monedas en GameHUDView
+    public PlayerController player; // Referencia al PlayerController para gestionar el estado de temblor
 
     private float currentSpeed; // Velocidad actual
     private Queue<GameObject> activeObjects = new Queue<GameObject>(); // Plantillas activas visibles
     private List<GameObject> availableObjects; // Plantillas disponibles para usar
     private int coinsCollected = 0; // Monedas recolectadas
-    private bool isPlayerShaking = false; // Estado del jugador (temblando)
     private float shakeTime = 2.0f; // Duración del estado de temblor
 
     private Dictionary<int, List<int>> connectionRules = new Dictionary<int, List<int>>()
@@ -89,40 +89,62 @@ public class ObjectsController : MonoBehaviour
         }
     }
 
+    // Método para sumar una moneda al contador
+    public void AddCoin()
+    {
+        coinsCollected++;
+        coinsText.text = "Monedas: " + coinsCollected.ToString();
+    }
+
+    // Corrutina para reaparecer la moneda después de 3 segundos
+    public IEnumerator RespawnCoin(GameObject coin)
+    {
+        yield return new WaitForSeconds(3f);
+        coin.SetActive(true); // Reactivar la moneda
+        Collider coinCollider = coin.GetComponent<Collider>();
+        if (coinCollider != null)
+        {
+            coinCollider.enabled = true; // Asegurar que el Collider esté activo
+        }
+    }
+
     // Detectar colisiones con obstáculos y monedas
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle"))
         {
-            if (isPlayerShaking)
-            {
-                // El jugador golpea por segunda vez mientras tiembla
-                Debug.Log("Jugador se cae y pierde");
-                // Aquí puedes llamar al método que maneje la pérdida del jugador
-            }
-            else
-            {
-                // El jugador tiembla al golpear el obstáculo
-                Debug.Log("Jugador está temblando");
-                isPlayerShaking = true;
-                StartCoroutine(ShakePlayer());
-            }
+            HandleObstacleCollision(other);
         }
         else if (other.CompareTag("Coin"))
         {
-            // El jugador recolecta una moneda
-            other.gameObject.SetActive(false); // Desactiva la moneda
-            coinsCollected++;
-            coinsText.text = "Monedas: " + coinsCollected.ToString();
+            CollectCoin(other.gameObject);
         }
     }
 
-    // Temporizador para el estado de temblor del jugador
-    private IEnumerator ShakePlayer()
+    // Manejo de colisión con obstáculo
+    void HandleObstacleCollision(Collider obstacle)
     {
-        yield return new WaitForSeconds(shakeTime);
-        isPlayerShaking = false; // El jugador deja de temblar
-        Debug.Log("Jugador deja de temblar");
+        Vector3 obstaclePosition = obstacle.transform.position;
+        Vector3 playerPosition = player.transform.position;
+
+        // Si el jugador se choca de frente
+        if (Mathf.Abs(obstaclePosition.x - playerPosition.x) < 0.1f)
+        {
+            player.LoseGame(); // Pierde si se choca de frente
+        }
+        else
+        {
+            player.StartShaking(shakeTime); // Si es un choque lateral, el jugador tiembla
+            player.ResetToLane(); // Regresa al carril anterior
+        }
+    }
+
+    // Manejo de la recolección de monedas
+    void CollectCoin(GameObject coin)
+    {
+        coin.SetActive(false); // Desactivar la moneda
+        AddCoin(); // Actualizar el contador de monedas
+        StartCoroutine(RespawnCoin(coin)); // Reaparecer la moneda después de 3 segundos
     }
 
     // Restablecer el estado de las monedas cuando se vuelve a activar una plantilla
@@ -133,6 +155,11 @@ public class ObjectsController : MonoBehaviour
             if (child.CompareTag("Coin"))
             {
                 child.gameObject.SetActive(true); // Las monedas vuelven a estar activas
+                Collider coinCollider = child.GetComponent<Collider>();
+                if (coinCollider != null)
+                {
+                    coinCollider.enabled = true; // Asegurar que el Collider esté activo
+                }
             }
         }
     }
