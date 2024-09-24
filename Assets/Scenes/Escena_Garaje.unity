@@ -230,57 +230,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1651803702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &218007504 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-  m_PrefabInstance: {fileID: 1659189457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &218007505 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-  m_PrefabInstance: {fileID: 1659189457}
+  m_CorrespondingSourceObject: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+  m_PrefabInstance: {fileID: 6312229653429088260}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &218007506
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218007504}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials: []
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &301129409
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,11 +609,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!23 &383204448 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 792178030453808269, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-  m_PrefabInstance: {fileID: 1659189457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &458979807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b866ddff1be59024cb453800b1755b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  biciRenderer: {fileID: 383204448}
+  biciRenderer: {fileID: 1810393142}
   botonesColor:
   - {fileID: 1531592555}
   - {fileID: 1836261187}
@@ -1074,12 +1023,12 @@ MonoBehaviour:
   - {r: 0.9607844, g: 0, b: 0.07058824, a: 0}
   - {r: 0.9607844, g: 0.7137255, b: 0, a: 0}
   - {r: 0.65882355, g: 0.9607844, b: 0, a: 0}
-  - {r: 0, g: 0.9607844, b: 0.8235295, a: 0}
-  - {r: 0.027450982, g: 0.6039216, b: 0.9333334, a: 0}
-  - {r: 0.3254902, g: 0, b: 0.9607844, a: 0}
-  - {r: 0.6, g: 0.011764707, b: 0.9490197, a: 0}
-  - {r: 0.9490197, g: 0.011764707, b: 0.8313726, a: 0}
-  - {r: 0.08235294, g: 0.08235294, b: 0.08235294, a: 0}
+  - {r: 0.027450982, g: 0.93725497, b: 0.8078432, a: 0}
+  - {r: 0.015686275, g: 0.60784316, b: 0.9450981, a: 0}
+  - {r: 0.33333334, g: 0.019607844, b: 0.94117653, a: 0}
+  - {r: 0.6039216, g: 0, b: 0.9607844, a: 0}
+  - {r: 0.882353, g: 0.08627451, b: 0.7803922, a: 0}
+  - {r: 0.07450981, g: 0.07450981, b: 0.07450981, a: 0}
 --- !u!4 &780704912
 Transform:
   m_ObjectHideFlags: 0
@@ -1463,12 +1412,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2079,7 +2028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2755127, y: -27}
+  m_AnchoredPosition: {x: -0.2755127, y: 197}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1251957026
@@ -2891,482 +2840,6 @@ Transform:
   - {fileID: 462217924}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1659189457
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1651803702}
-    m_Modifications:
-    - target: {fileID: -9209132335523404667, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9534.007
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 9534.007
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 9534.007
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1133
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -170.48013
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.3448305
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.938665
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -580.343
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8611377942415928677, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: freno 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8450899869388040056, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 58e61ea11fe68004c93d6ad22c6a35a2, type: 2}
-    - target: {fileID: -8398960045784157424, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -8344868451310641618, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 29313cc52b7b04741afb3723a716fa4e, type: 2}
-    - target: {fileID: -7819050196498120650, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -7487791890971482641, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -7195422361810828282, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: frenos 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -7139573339310071951, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -6767496328373274685, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cable frenos
-      objectReference: {fileID: 0}
-    - target: {fileID: -6356965896782262320, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cable frenos 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -6296570358871156382, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: frenos 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -5578493528774212342, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cadena
-      objectReference: {fileID: 0}
-    - target: {fileID: -5467166282002323658, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cilindros traseros
-      objectReference: {fileID: 0}
-    - target: {fileID: -5438740059176691844, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -5334199253658105087, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -5243344646112281735, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: tornillo silla 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5025334889259837004, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: llanta interna trasera
-      objectReference: {fileID: 0}
-    - target: {fileID: -5021835011640781379, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -4889221916911349359, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: piston trasero
-      objectReference: {fileID: 0}
-    - target: {fileID: -4761414491736737036, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -4692008554842423541, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cilindro silla
-      objectReference: {fileID: 0}
-    - target: {fileID: -4387036236759994299, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: freno 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -4340964994043227598, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 29313cc52b7b04741afb3723a716fa4e, type: 2}
-    - target: {fileID: -4115690071656664335, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cilindro manubrio 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4012579331341936135, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 58e61ea11fe68004c93d6ad22c6a35a2, type: 2}
-    - target: {fileID: -3621826578433264133, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: -3610051325030478191, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 58e61ea11fe68004c93d6ad22c6a35a2, type: 2}
-    - target: {fileID: -3348056721976527219, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: -3236618512532375867, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: llanta trasera
-      objectReference: {fileID: 0}
-    - target: {fileID: -3133009178502620842, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: marco
-      objectReference: {fileID: 0}
-    - target: {fileID: -3009417692293081531, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: 'frenos '
-      objectReference: {fileID: 0}
-    - target: {fileID: -2961534931563393121, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -2777865560225857109, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: llanta delantera
-      objectReference: {fileID: 0}
-    - target: {fileID: -2416548084742696720, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: apoyo 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -2392467784736848803, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0004985727
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.20144765
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.39658883
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9887501
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.14633626
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.030632813
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0045337
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -16.804
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.708
-      objectReference: {fileID: 0}
-    - target: {fileID: -2252997138388004358, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 1.073
-      objectReference: {fileID: 0}
-    - target: {fileID: -1118101757937995554, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -762445103886358463, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 58e61ea11fe68004c93d6ad22c6a35a2, type: 2}
-    - target: {fileID: -435869857824097739, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: -293448001047582479, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: freno manubrio 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 43826449080093497, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 124875463998587978, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: tornillo silla 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 544612041441768601, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cable frenos 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 633777949153197121, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: 919132149155446097, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: bici unity
-      objectReference: {fileID: 0}
-    - target: {fileID: 1217309840430204492, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: marco
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530756398648461256, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: llanta trasera
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612640101126088381, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 1661934789054915022, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 1727792042639306411, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: llanta delantera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2077894902590235886, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: 2141359811652974133, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: 2329937724465218600, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: frenos 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368546505104585452, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: apoyo 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2401043708944791891, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 2404494798215733654, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: 'soporte manubrio '
-      objectReference: {fileID: 0}
-    - target: {fileID: 2430639784586237655, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 2576983741059519763, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: piston delantero
-      objectReference: {fileID: 0}
-    - target: {fileID: 3252859004546953457, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cadena
-      objectReference: {fileID: 0}
-    - target: {fileID: 3305848020758444393, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 3320644866653200459, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: freno manibrio 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593159435264650729, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 3646010315508208016, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: 3735600699269565872, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 3796810615843765454, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 4046243185914353681, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: silla
-      objectReference: {fileID: 0}
-    - target: {fileID: 4137220220906077364, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: 4291042090647249302, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: platos
-      objectReference: {fileID: 0}
-    - target: {fileID: 4390458382404538138, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 4409992592926003544, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 4673157649359719635, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 4798288479868246933, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 58e61ea11fe68004c93d6ad22c6a35a2, type: 2}
-    - target: {fileID: 5602516251271035781, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 6075814838571580785, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: llanta interna delantera
-      objectReference: {fileID: 0}
-    - target: {fileID: 6144835435467877865, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: apoyo asiento
-      objectReference: {fileID: 0}
-    - target: {fileID: 6446622334223942842, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 29313cc52b7b04741afb3723a716fa4e, type: 2}
-    - target: {fileID: 6615138566509632819, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: 6983019038890065278, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 58e61ea11fe68004c93d6ad22c6a35a2, type: 2}
-    - target: {fileID: 7338500657132334836, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: 7350578170269052101, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: apoyo 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573131038555416883, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: manubrio
-      objectReference: {fileID: 0}
-    - target: {fileID: 7668226409967012294, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cable frenos 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7764045866398673273, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 723b05f19f7243f449f795ebc424883e, type: 2}
-    - target: {fileID: 8371165801318054713, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 8756911353165858718, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 8846790625315015524, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: apoyo 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9043644251471450925, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: frenos manubrio 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9065974681380111437, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c79950e2e7fc3f04bb290dda2590e8c6, type: 2}
-    - target: {fileID: 9185670954721012575, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cilindros delanteros
-      objectReference: {fileID: 0}
-    - target: {fileID: 9188123625616974608, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: frenos 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9210931894826902125, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      propertyPath: m_Name
-      value: cilindro cadena
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: -6767496328373274685, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-    - {fileID: 544612041441768601, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-    - {fileID: -6356965896782262320, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-    - {fileID: 7668226409967012294, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 218007506}
-  m_SourcePrefab: {fileID: 100100000, guid: beb9dae7053484445aff3e6081eb7b19, type: 3}
 --- !u!1 &1729991115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,6 +2908,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1810393142 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2330979143657296832, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+  m_PrefabInstance: {fileID: 6312229653429088260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1831626758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4000,12 +3478,12 @@ MonoBehaviour:
   - {r: 0.9607844, g: 0, b: 0.07058824, a: 0}
   - {r: 0.9607844, g: 0.7137255, b: 0, a: 0}
   - {r: 0.65882355, g: 0.9607844, b: 0, a: 0}
-  - {r: 0.04705883, g: 0.9176471, b: 0.7960785, a: 0}
-  - {r: 0, g: 0.6117647, b: 0.9607844, a: 0}
-  - {r: 0.35686275, g: 0.09019608, b: 0.8745099, a: 0}
+  - {r: 0, g: 0.9607844, b: 0.8235295, a: 0}
+  - {r: 0.019607844, g: 0.6039216, b: 0.94117653, a: 0}
+  - {r: 0.3372549, g: 0.03529412, b: 0.92549026, a: 0}
   - {r: 0.6039216, g: 0, b: 0.9607844, a: 0}
-  - {r: 0.9568628, g: 0.003921569, b: 0.8352942, a: 0}
-  - {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 0}
+  - {r: 0.9607844, g: 0, b: 0.83921576, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &2099125208
 Transform:
   m_ObjectHideFlags: 0
@@ -4128,6 +3606,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1651803702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6312229653429088260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1651803702}
+    m_Modifications:
+    - target: {fileID: 2766975192320569884, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_Name
+      value: bici unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -170.48013
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3448305
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.938665
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -580.343
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255422944794749094, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fc6ad344c5c93949bcf14475b344dc4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

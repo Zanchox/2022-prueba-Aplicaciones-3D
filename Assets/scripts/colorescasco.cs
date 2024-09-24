@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class colorchanger2 : MonoBehaviour
+public class colorescasco : MonoBehaviour
 {
     public Renderer cascoRenderer; // Referencia al modelo de la bicicleta
     public Button[] botonesColor2; // Botones para seleccionar colores

@@ -24,6 +24,7 @@ public class ButtonManager : MonoBehaviour
     public void OnJugadorButtonClicked()
     {
         Debug.Log("Boton Jugador Presionado");
+        SceneManager.LoadScene("Escena_Jugador");
     }
 
     public void OnAtrasButtonClicked()
