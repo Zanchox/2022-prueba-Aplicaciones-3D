@@ -30,7 +30,7 @@ public class ButtonManager : MonoBehaviour
     public void OnAtrasButtonClicked()
     {
         Debug.Log("Boton Atras Presionado");
-        SceneManager.LoadScene("Pantalla_Principal");
+        SceneManager.LoadScene("Pantalla_Principal_2");
     }
 
     public void OnMusicaButtonClicked()
