@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pantalla_Principal_2.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Escena_Juego.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Escena_Juego_zanchox.unity
+    guid: fd513fd159264b146888f29cff083918
   - enabled: 1
     path: Assets/Scenes/Escena_Opciones.unity
     guid: afea9edec5ee27441a040a5f757e8de1
