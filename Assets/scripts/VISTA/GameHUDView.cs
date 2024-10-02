@@ -32,4 +32,14 @@ public class GameHUDView : MonoBehaviour
     {
         coinsText.text = "Monedas: " + coinsCollected.ToString();
     }
+
+    public float GetDistanceTravelled()
+    {
+        return distanceTravelled;
+    }
+
+    public int GetCoinsCollected()
+    {
+        return coinsCollected;
+    }
 }

@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public bool isShaking = false; // Estado del jugador (temblando)
     private Coroutine shakeCoroutine;
     private float shakeTime = 2.0f; // Tiempo que dura el temblor
+    private bool canBeHitAgain = true; // Controla si el jugador puede ser golpeado sin perder
+
+    public float collisionThresholdZ = 1.5f; // Umbral de distancia para detectar colisión frontal en el eje Z
+    public float collisionThresholdX = 0.5f; // Umbral de distancia para detectar colisión frontal en el eje X
 
     void Start()
     {
@@ -79,13 +83,15 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Shake(float shakeDuration)
     {
         isShaking = true;
+        canBeHitAgain = false; // Durante el tiempo de temblor, el jugador puede perder si vuelve a chocar
         Debug.Log("El jugador está temblando");
         yield return new WaitForSeconds(shakeDuration);
         isShaking = false;
+        canBeHitAgain = true; // Ahora puede volver a chocar sin perder automáticamente
         Debug.Log("El jugador deja de temblar");
     }
 
-    // Método para volver al carril anterior
+    // Método para volver al carril anterior después de una colisión lateral
     public void ResetToLane()
     {
         currentLane = previousLane; // Vuelve al carril anterior
@@ -95,8 +101,7 @@ public class PlayerController : MonoBehaviour
     // Método que se llama cuando el jugador pierde
     public void LoseGame()
     {
-        Debug.Log("Perdiste el juego");
-        // Aquí puedes agregar lógica para manejar la pérdida, como reiniciar el nivel, mostrar un mensaje, etc.
+        FindObjectOfType<GameController>().OnPlayerDeath(); // Llamar al GameController cuando el jugador muera
     }
 
     // Manejo de colisiones
@@ -118,15 +123,32 @@ public class PlayerController : MonoBehaviour
         Vector3 obstaclePosition = obstacle.transform.position;
         Vector3 playerPosition = transform.position;
 
-        // Si el jugador se choca de frente
-        if (Mathf.Abs(obstaclePosition.x - playerPosition.x) < 0.1f)
+        // Calcula si el jugador está en el mismo carril que el obstáculo, usando el umbral en X (tolerancia por los carriles)
+        bool sameLane = Mathf.Abs(obstaclePosition.x - playerPosition.x) < collisionThresholdX;
+
+        // Si está en el mismo carril y la posición en Z está dentro del umbral, cuenta como colisión frontal
+        bool isFrontalCollision = sameLane && Mathf.Abs(obstaclePosition.z - playerPosition.z) < collisionThresholdZ;
+
+        // Si es una colisión frontal (independientemente del carril)
+        if (isFrontalCollision)
         {
-            LoseGame(); // Pierde si se choca de frente
+            Debug.Log("Colisión frontal detectada");
+            LoseGame(); // Pierde si se choca de frente en cualquier carril
         }
         else
         {
-            StartShaking(shakeTime); // Si es un choque lateral, el jugador tiembla
-            ResetToLane(); // Regresa al carril anterior
+            // Colisión lateral
+            if (isShaking && !canBeHitAgain)
+            {
+                // Si está temblando y vuelve a chocar, pierde el juego
+                LoseGame();
+            }
+            else
+            {
+                // Primer choque lateral: el jugador tiembla y rebota al carril anterior
+                StartShaking(shakeTime); // Si es un choque lateral, el jugador tiembla
+                ResetToLane(); // Regresar al carril anterior
+            }
         }
     }
 
