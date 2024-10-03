@@ -6,7 +6,7 @@ public class ButtonManager : MonoBehaviour
     public void OnJugarButtonClicked() //nombres para el script "jugar" todo lo demas es igual
     {
         Debug.Log("Boton Jugar presionado");
-        SceneManager.LoadScene("Escena_Juego_zanchox");
+        SceneManager.LoadScene("Escena_Juego");
     }
 
     public void OnOpcionesButtonClicked()
@@ -30,7 +30,7 @@ public class ButtonManager : MonoBehaviour
     public void OnAtrasButtonClicked()
     {
         Debug.Log("Boton Atras Presionado");
-        SceneManager.LoadScene("Pantalla_Principal_2");
+        SceneManager.LoadScene("Pantalla_Principal");
     }
 
     public void OnMusicaButtonClicked()
