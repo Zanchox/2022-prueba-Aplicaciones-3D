@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public bool isShaking = false; // Estado del jugador (temblando)
     private Coroutine shakeCoroutine;
     private float shakeTime = 2.0f; // Tiempo que dura el temblor
+    private bool canBeHitAgain = true; // Controla si el jugador puede ser golpeado sin perder
+
+    public float collisionThresholdZ = 1.5f; // Umbral de distancia para detectar colisión frontal en el eje Z
+    public float collisionThresholdX = 0.5f; // Umbral de distancia para detectar colisión frontal en el eje X
 
     void Start()
     {
@@ -79,13 +83,15 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Shake(float shakeDuration)
     {
         isShaking = true;
+        canBeHitAgain = false; // Durante el tiempo de temblor, el jugador puede perder si vuelve a chocar
         Debug.Log("El jugador está temblando");
         yield return new WaitForSeconds(shakeDuration);
         isShaking = false;
+        canBeHitAgain = true; // Ahora puede volver a chocar sin perder automáticamente
         Debug.Log("El jugador deja de temblar");
     }
 
-    // Método para volver al carril anterior
+    // Método para volver al carril anterior después de una colisión lateral
     public void ResetToLane()
     {
         currentLane = previousLane; // Vuelve al carril anterior
@@ -95,12 +101,11 @@ public class PlayerController : MonoBehaviour
     // Método que se llama cuando el jugador pierde
     public void LoseGame()
     {
-        Debug.Log("Perdiste el juego");
-        // Aquí puedes agregar lógica para manejar la pérdida, como reiniciar el nivel, mostrar un mensaje, etc.
+        FindObjectOfType<GameController>().OnPlayerDeath(); // Llamar al GameController cuando el jugador muera
     }
 
-    // Manejo de colisiones
-    private void OnTriggerEnter(Collider other)
+    // Este método se llama continuamente mientras el jugador está en contacto con el collider de un objeto
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Obstacle"))
         {
@@ -108,7 +113,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Coin"))
         {
-            CollectCoin(other.gameObject); // Recolección de monedas
+            // Si colisiona con una moneda, recolectarla
+            CollectCoin(other.gameObject);
         }
     }
 
@@ -118,15 +124,38 @@ public class PlayerController : MonoBehaviour
         Vector3 obstaclePosition = obstacle.transform.position;
         Vector3 playerPosition = transform.position;
 
-        // Si el jugador se choca de frente
-        if (Mathf.Abs(obstaclePosition.x - playerPosition.x) < 0.1f)
+        // Detectar colisión frontal: si el obstáculo está por delante del jugador en Z y en el mismo carril (X)
+        bool isFrontalCollision = Mathf.Abs(obstaclePosition.x - playerPosition.x) < collisionThresholdX &&
+                                  Mathf.Abs(playerPosition.z - obstaclePosition.z) < collisionThresholdZ;
+
+        if (isFrontalCollision)
         {
-            LoseGame(); // Pierde si se choca de frente
+            // Colisión frontal: pérdida inmediata
+            Debug.Log("Colisión frontal detectada");
+            LoseGame(); // Pierde si se choca de frente en cualquier carril
         }
         else
         {
+            // Colisión lateral: no es derrota instantánea
+            HandleLateralCollision();
+        }
+    }
+
+    // Manejo de colisión lateral (no derrota inmediata)
+    void HandleLateralCollision()
+    {
+        if (isShaking && !canBeHitAgain)
+        {
+            // Si está temblando y vuelve a chocar, pierde el juego
+            Debug.Log("Colisión lateral durante el temblor, el jugador pierde.");
+            LoseGame();
+        }
+        else
+        {
+            // Primer choque lateral: el jugador tiembla y regresa al carril anterior
+            Debug.Log("Colisión lateral detectada, el jugador comienza a temblar.");
             StartShaking(shakeTime); // Si es un choque lateral, el jugador tiembla
-            ResetToLane(); // Regresa al carril anterior
+            ResetToLane(); // Regresar al carril anterior
         }
     }
 
